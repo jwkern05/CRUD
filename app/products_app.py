@@ -1,25 +1,39 @@
 import csv
 
+
+
+
+products = []
+
 csv_file_path = "data/products.csv"
 
 with open(csv_file_path, "r") as csv_file:
     reader = csv.DictReader(csv_file)
     for row in reader:
-        print(row["id"], row["name"])
+        #print(dict(row))
+        products.append(row)
 
+
+
+
+
+
+print(len(products))
 
 menu = """
     Hi.
 
     Welcome to the products app.
 
-    There are 100 products.
+    There are {0} products.
 
     Available operations: 'List', 'Show', 'Create', 'Update', 'Destroy'
 
     Please choose an operation:
 
-"""
+""".format(len(products))
+
+print(menu)
 
 chosen_operation = input(menu)
 chosen_operation = chosen_operation.title()
