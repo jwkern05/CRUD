@@ -1,7 +1,7 @@
 import csv
 
 
-
+# READ PRODUCTS CSV
 
 products = []
 
@@ -10,15 +10,7 @@ csv_file_path = "data/products.csv"
 with open(csv_file_path, "r") as csv_file:
     reader = csv.DictReader(csv_file)
     for row in reader:
-        #print(dict(row))
         products.append(row)
-
-
-
-
-
-
-print(len(products))
 
 menu = """
     Hi.
@@ -33,7 +25,19 @@ menu = """
 
 """.format(len(products))
 
-print(menu)
+
+
+
+
+
+other_path = "data/other_products.csv"
+with open(other_path, "w") as csv_file:
+    writer = csv.DictWriter(csv_file, fieldnames=["id","name","aisle","department","price"])
+    writer.writeheader() # uses fieldnames set above
+    for product in products:
+        writer.writerow(product)
+
+        
 
 chosen_operation = input(menu)
 chosen_operation = chosen_operation.title()
