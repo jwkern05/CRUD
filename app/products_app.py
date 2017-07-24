@@ -22,6 +22,8 @@ def valid_id(id):
         id = input("WRONG PRODUCT INDENTIFIER! Please try again: ")
     return id
 
+#Opening Code
+
 menu = """
     Hi.
 
@@ -35,14 +37,10 @@ menu = """
 
 """.format(len(products))
 
-# # example of manipulating/changing the products list
-# example_new_product = {"id": 100, "name": "New Item", "aisle": "snacks", "department": "snacks", "price":1.99}
-# products.append(example_new_product)
-
-
-
 chosen_operation = input(menu)
 chosen_operation = chosen_operation.title()
+
+#Handle User Inputs
 
 def list_products():
     print("LISTING PRODUCTS")
